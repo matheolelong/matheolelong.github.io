@@ -279,33 +279,22 @@ ul {
 }
 
 .presentation {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding: var(--spacing-xl) 0;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .presentation-content h2 {
     margin-bottom: var(--spacing-md);
+    text-align: center;
 }
 
-.presentation-photo {
-    display: flex;
-    justify-content: center;
-}
-
-.photo-placeholder {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: var(--color-background-alt);
-    border: 4px solid var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary);
-    font-weight: 500;
+.presentation-content p {
+    text-align: justify;
+    margin: 0 auto var(--spacing-sm);
 }
 
 /* =============================================
@@ -434,57 +423,58 @@ ul {
     border-bottom: 2px solid var(--color-primary);
 }
 
-/* Savoir-faire - Barres de progression */
-.skills-list {
+/* Savoir-faire - Liste simple */
+.skills-list-simple {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-}
-
-.skill-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-}
-
-.skill-name {
-    font-weight: 500;
-    font-size: var(--font-size-small);
-}
-
-.skill-bar {
-    height: 8px;
-    background-color: var(--color-background-alt);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
-    border-radius: 4px;
-    transition: width 1s ease;
-}
-
-/* Savoir-être - Liste */
-.softskills-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
 }
 
-.softskills-list li {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm);
+.skills-list-simple li {
+    padding: var(--spacing-sm) var(--spacing-md);
     background-color: var(--color-background);
     border-radius: var(--border-radius);
-    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+    font-size: var(--font-size-small);
+    transition: var(--transition);
 }
 
-.softskill-icon {
-    font-size: 1.25rem;
+.skills-list-simple li:hover {
+    background-color: rgba(16, 185, 129, 0.1);
+    transform: translateX(5px);
+}
+
+/* Savoir-être - Liste simple */
+.softskills-list-simple {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.softskills-list-simple li {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--color-primary);
+    font-size: var(--font-size-small);
+    transition: var(--transition);
+}
+
+.softskills-list-simple li:hover {
+    background-color: rgba(16, 185, 129, 0.1);
+    transform: translateX(5px);
+}
+
+@media (max-width: 992px) {
+    .competences-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =============================================
@@ -915,6 +905,163 @@ ul {
     .tag {
         text-align: center;
     }
+}
+
+/* =============================================
+   PAGES PROJET DÉTAIL
+   ============================================= */
+.project-detail {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-detail-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    font-weight: 500;
+    padding: var(--spacing-sm) 0;
+    transition: var(--transition);
+}
+
+.btn-back:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+.project-detail-content {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.project-info-card {
+    background-color: var(--color-background-alt);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+}
+
+.project-info-card h2 {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+}
+
+.project-meta {
+    list-style: none;
+}
+
+.project-meta li {
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-meta li:last-child {
+    border-bottom: none;
+}
+
+.project-meta strong {
+    color: var(--color-primary);
+}
+
+.project-description {
+    background-color: var(--color-background-alt);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+.project-description h2 {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.project-description h3 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--color-primary);
+}
+
+.feature-list li strong {
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.skills-acquired {
+    padding-left: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.skills-acquired li {
+    list-style: disc;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+    padding: var(--spacing-xs) 0;
+}
+
+/* Images des projets */
+.project-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.project-image {
+    margin: 0;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.project-image img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image figcaption {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: var(--font-size-small);
+    margin-top: var(--spacing-xs);
+    font-style: italic;
+}
+
+.project-link {
+    margin-top: var(--spacing-lg);
+    text-align: center;
 }
 
 /* =============================================
